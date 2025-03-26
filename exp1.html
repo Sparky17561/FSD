@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CyberSec Bytes Blog</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+    /* Define our bluish dark theme based on 70-20-10 rule */
+    :root {
+      --primary-color: #0d1b2a;   /* 70% - dominant dark navy */
+      --secondary-color: #1b263b; /* 20% - slightly lighter dark blue */
+      --accent-color: #415a77;    /* 10% - accent blue */
+      --text-color: #ffffff;
+    }
+    
+    body {
+      background-color: var(--primary-color);
+      color: var(--text-color);
+    }
+    
+    /* Navbar styling */
+    .navbar {
+      background-color: var(--secondary-color);
+    }
+    
+    .navbar-brand, .nav-link {
+      color: var(--text-color) !important;
+    }
+    
+    /* Header styling */
+    header {
+      padding: 60px 0;
+      background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+      text-align: center;
+    }
+    
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+    
+    header p.lead {
+      font-size: 1.25rem;
+      margin-bottom: 30px;
+    }
+    
+    header a.btn {
+      background-color: var(--accent-color);
+      border: none;
+      color: var(--text-color);
+      padding: 10px 20px;
+      transition: background-color 0.3s ease;
+    }
+    
+    header a.btn:hover {
+      background-color: var(--secondary-color);
+    }
+    
+    /* Card and video section styling */
+    .video-card {
+      position: relative;
+      background-color: var(--secondary-color);
+      border: none;
+      border-radius: 5px;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+    
+    .card-body {
+      background-color: var(--primary-color);
+    }
+    
+    .card-text {
+      margin-bottom: 15px;
+      font-weight: 500;
+      color: var(--text-color);
+    }
+    
+    /* Button styling */
+    .btn-like, .btn-comment {
+      transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+      background-color: var(--accent-color);
+      color: var(--text-color);
+      border: none;
+    }
+    
+    .btn-like:hover, .btn-comment:hover {
+      transform: scale(1.05);
+      background-color: var(--secondary-color);
+    }
+    
+    /* Like pulse animation */
+    @keyframes likePulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.3); }
+      100% { transform: scale(1); }
+    }
+    .liked {
+      animation: likePulse 0.5s ease;
+    }
+    
+    .comment-section {
+      margin-top: 15px;
+      padding: 10px;
+      border: 1px solid #444;
+      border-radius: 5px;
+      background-color: var(--secondary-color);
+    }
+    
+    /* Ensure comment text is white */
+    .comment-item p {
+      color: var(--text-color);
+    }
+    
+    .btn-delete, .btn-edit {
+      background-color: #dc3545;
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      margin-top: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    
+    .btn-edit {
+      background-color: #ffc107;
+      color: #000;
+    }
+    
+    .btn-delete:hover, .btn-edit:hover {
+      opacity: 0.8;
+    }
+    
+    /* Footer styling */
+    footer {
+      padding: 20px;
+      text-align: center;
+      background-color: var(--secondary-color);
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">CyberSec Bytes</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#threats">Threats</a></li>
+          <li class="nav-item"><a class="nav-link" href="#news">News</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Header -->
+  <header id="home">
+    <div class="container">
+      <h1 class="display-4">CyberSec Bytes</h1>
+      <p class="lead">Your hub for the latest in cybersecurity insights, threat analysis, and tutorials. Stay informed and secure in today’s digital world.</p>
+      <a href="#news" class="btn">Discover More</a>
+    </div>
+  </header>
+  
+  <!-- Videos Section -->
+  <section class="py-5" id="news">
+    <div class="container">
+      <h2 class="text-center mb-4">Latest Cybersecurity Videos</h2>
+      <p class="text-center mb-5">Watch our curated selection of cybersecurity training, course reviews, and industry insights.</p>
+      <div class="row g-4">
+        <!-- Video Card 1 -->
+        <div class="col-md-6">
+          <div class="card video-card">
+            <div class="ratio ratio-16x9">
+              <iframe src="https://www.youtube.com/embed/HZzXbxajz80" title="Cyber Security Full Course 2025" allowfullscreen></iframe>
+            </div>
+            <div class="card-body">
+              <p class="card-text">Cyber Security Full Course 2025</p>
+              <button class="btn btn-like me-2" onclick="likeVideo(this, 'likeCount1')">Like (<span id="likeCount1">0</span>)</button>
+              <button class="btn btn-comment" onclick="toggleCommentSection('commentSection1')">Comment</button>
+              <div id="commentSection1" class="comment-section" style="display: none;">
+                <textarea class="form-control mb-2" id="commentText1" rows="3" placeholder="Write your comment"></textarea>
+                <button class="btn btn-success w-100" onclick="submitComment('commentText1', 'comments1')">Submit Comment</button>
+                <div id="comments1" class="mt-3"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Video Card 2 -->
+        <div class="col-md-6">
+          <div class="card video-card">
+            <div class="ratio ratio-16x9">
+              <iframe src="https://www.youtube.com/embed/bdG2SUANSnQ" title="Free Cyber Security Courses for 2025" allowfullscreen></iframe>
+            </div>
+            <div class="card-body">
+              <p class="card-text">Free Cyber Security Courses for 2025</p>
+              <button class="btn btn-like me-2" onclick="likeVideo(this, 'likeCount2')">Like (<span id="likeCount2">0</span>)</button>
+              <button class="btn btn-comment" onclick="toggleCommentSection('commentSection2')">Comment</button>
+              <div id="commentSection2" class="comment-section" style="display: none;">
+                <textarea class="form-control mb-2" id="commentText2" rows="3" placeholder="Write your comment"></textarea>
+                <button class="btn btn-success w-100" onclick="submitComment('commentText2', 'comments2')">Submit Comment</button>
+                <div id="comments2" class="mt-3"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Video Card 3 -->
+        <div class="col-md-6">
+          <div class="card video-card">
+            <div class="ratio ratio-16x9">
+              <iframe src="https://www.youtube.com/embed/FezxfRxrp88" title="Top Cybersecurity Awareness Training Vendors" allowfullscreen></iframe>
+            </div>
+            <div class="card-body">
+              <p class="card-text">Top Cybersecurity Awareness Training Vendors</p>
+              <button class="btn btn-like me-2" onclick="likeVideo(this, 'likeCount3')">Like (<span id="likeCount3">0</span>)</button>
+              <button class="btn btn-comment" onclick="toggleCommentSection('commentSection3')">Comment</button>
+              <div id="commentSection3" class="comment-section" style="display: none;">
+                <textarea class="form-control mb-2" id="commentText3" rows="3" placeholder="Write your comment"></textarea>
+                <button class="btn btn-success w-100" onclick="submitComment('commentText3', 'comments3')">Submit Comment</button>
+                <div id="comments3" class="mt-3"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Video Card 4 -->
+        <div class="col-md-6">
+          <div class="card video-card">
+            <div class="ratio ratio-16x9">
+              <iframe src="https://www.youtube.com/embed/75zdVSoIihQ" title="Cybersecurity Full Course 2025 | Intellipaat" allowfullscreen></iframe>
+            </div>
+            <div class="card-body">
+              <p class="card-text">Cybersecurity Full Course 2025 | Intellipaat</p>
+              <button class="btn btn-like me-2" onclick="likeVideo(this, 'likeCount4')">Like (<span id="likeCount4">0</span>)</button>
+              <button class="btn btn-comment" onclick="toggleCommentSection('commentSection4')">Comment</button>
+              <div id="commentSection4" class="comment-section" style="display: none;">
+                <textarea class="form-control mb-2" id="commentText4" rows="3" placeholder="Write your comment"></textarea>
+                <button class="btn btn-success w-100" onclick="submitComment('commentText4', 'comments4')">Submit Comment</button>
+                <div id="comments4" class="mt-3"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Contact Section -->
+  <section class="py-5" id="contact">
+    <div class="container">
+      <h2 class="text-center mb-4">Contact Us</h2>
+      <form class="row g-3 mx-auto" style="max-width: 600px;">
+        <div class="col-12">
+          <label for="name" class="form-label">Your Name</label>
+          <input type="text" class="form-control" id="name" placeholder="Enter your name" required pattern="[A-Za-z\s]+" title="Name should only contain letters and spaces">
+        </div>
+        <div class="col-12">
+          <label for="email" class="form-label">Your Email</label>
+          <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+        </div>
+        <div class="col-12">
+          <label for="message" class="form-label">Your Message</label>
+          <textarea class="form-control" id="message" rows="5" placeholder="Write your message" required></textarea>
+        </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-success w-100">Send Message</button>
+        </div>
+      </form>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 CyberSec Bytes. All rights reserved. | <a href="#privacy" style="color: var(--accent-color);">Privacy Policy</a> | <a href="#terms" style="color: var(--accent-color);">Terms of Service</a>
+  </footer>
+  
+  <!-- JavaScript for Like and Comment Functionality -->
+  <script>
+    // Like Button Functionality with pulse animation
+    function likeVideo(button, likeCountId) {
+      const likeCountElement = document.getElementById(likeCountId);
+      let currentLikes = parseInt(likeCountElement.textContent);
+      likeCountElement.textContent = currentLikes + 1;
+      
+      // Add the animation class and remove it after animation ends
+      button.classList.add('liked');
+      setTimeout(() => {
+        button.classList.remove('liked');
+      }, 500);
+    }
+    
+    // Toggle Comment Section
+    function toggleCommentSection(commentSectionId) {
+      const commentSection = document.getElementById(commentSectionId);
+      commentSection.style.display = (commentSection.style.display === 'none' || commentSection.style.display === '') ? 'block' : 'none';
+    }
+    
+    // Submit Comment
+    function submitComment(commentTextId, commentsId) {
+      const commentText = document.getElementById(commentTextId).value;
+      if (commentText.trim() !== "") {
+        const commentsSection = document.getElementById(commentsId);
+        const newComment = document.createElement('div');
+        newComment.classList.add('comment-item');
+        newComment.innerHTML = `<p>${commentText}</p>
+          <button class="btn btn-edit" onclick="editComment(this)">Edit</button>
+          <button class="btn btn-delete" onclick="deleteComment(this)">Delete</button>`;
+        commentsSection.appendChild(newComment);
+        document.getElementById(commentTextId).value = ""; // Clear the textarea
+      }
+    }
+    
+    // Delete Comment
+    function deleteComment(button) {
+      const commentItem = button.parentElement;
+      commentItem.remove();
+    }
+    
+    // Edit Comment
+    function editComment(button) {
+      const commentItem = button.parentElement;
+      const commentText = commentItem.querySelector('p').textContent;
+      const newCommentText = prompt("Edit your comment:", commentText);
+      if (newCommentText !== null) {
+        commentItem.querySelector('p').textContent = newCommentText;
+      }
+    }
+  </script>
+</body>
+</html>
