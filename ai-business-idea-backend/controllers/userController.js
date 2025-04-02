@@ -1,19 +1,25 @@
 // controllers/userController.js
 const User = require('../models/User');
 
-// Create a new user (e.g., after Clerk authentication, if profile doesn’t exist)
 exports.createUser = async (req, res) => {
   try {
     const { clerkId, email, name, groqApiKey } = req.body;
+
+    if (!clerkId || !email || !name || !groqApiKey) {
+      return res.status(400).json({ error: "All fields are required." });
+    }
+
     // Check if user already exists
     let user = await User.findOne({ clerkId });
     if (user) {
       return res.status(200).json(user);
     }
+
     // Create new user
     user = await User.create({ clerkId, email, name, groqApiKey });
     res.status(201).json(user);
   } catch (error) {
+    console.error("Error creating user:", error);
     res.status(500).json({ error: error.message });
   }
 };
